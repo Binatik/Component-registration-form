@@ -1,0 +1,21 @@
+.form__group {
+    margin: 58px 0 0 0;
+}
+
+.form__title {
+    margin: 7px 0;
+    font-weight: 500;
+    font-size: 16px;
+    color: #756F86;
+}
+
+.form__input {
+    width: 100%;
+    padding: 11px;
+    font-size: 16px;
+    color: #2C2738;
+    background: #FFFFFF;
+    border: 1px solid #DBE2EA;
+    box-shadow: 0 4px 8px rgba(44, 39, 56, 0.04);
+    border-radius: 6px
+}
