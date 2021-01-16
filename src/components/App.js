@@ -1,18 +1,18 @@
 // =================================================
 import React from 'react';
 // =================================================
-
+//registration
 // Component
 import '../index.css';
-import './registration.css';
-import Group from "./form/ComponentForms/Group.js";
+import './global.css';
+import Registration from "./registration/Registration";
 
 function App() {
   return (
       <React.Fragment>
-          <div className="registration">
+          <div className="global">
               <div className="wrapper">
-                  <Group />
+                  <Registration />
               </div>
           </div>
       </React.Fragment>

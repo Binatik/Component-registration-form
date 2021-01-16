@@ -3,18 +3,18 @@ import React from 'react';
 // =================================================
 
 // Component
-import './group.css';
+import './registration.css';
 
-function Group() {
+function Registration() {
     return (
         <React.Fragment>
-            <h2 className="registration__title" >Регистрация</h2>
-            <div className="registration__group">
-                <span className="registration__information">Уже есть аккаунт?</span>
+            <h2 className="registration registration__title" >Регистрация</h2>
+            <div className="registration__account">
+                <span className="registration__description">Уже есть аккаунт?</span>
                 <button className="button registration__btn" type="button">Войти</button>
             </div>
         </React.Fragment>
     );
 }
 
-export default Group;
+export default Registration;
