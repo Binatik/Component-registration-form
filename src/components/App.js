@@ -1,7 +1,7 @@
 // =================================================
 import React from 'react';
 // =================================================
-//registration
+
 // Component
 import '../index.css';
 import './global.css';
