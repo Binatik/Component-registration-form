@@ -4,16 +4,16 @@ import React from 'react';
 
 // Component
 //import './registration.css';
-import Input from "./ComponentForm/Input";
 
-function Form() {
+function Input() {
     return (
         <React.Fragment>
-            <form className="form" action="#">
-                <Input />
-            </form>
+            <div className="form__group">
+                <h2 className="form__title">Имя</h2>
+                <input type="text" value="Очистить" />
+            </div>
         </React.Fragment>
     );
 }
 
-export default Form;
+export default Input;

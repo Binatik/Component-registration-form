@@ -6,6 +6,7 @@ import React from 'react';
 import '../index.css';
 import './global.css';
 import Registration from "./registration/Registration";
+import Form from "./form/Form";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
           <div className="global">
               <div className="wrapper">
                   <Registration />
+                  <Form />
               </div>
           </div>
       </React.Fragment>

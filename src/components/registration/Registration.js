@@ -9,7 +9,7 @@ function Registration() {
     return (
         <React.Fragment>
             <h2 className="registration registration__title" >Регистрация</h2>
-            <div className="registration__account">
+            <div className="registration registration__account">
                 <span className="registration__description">Уже есть аккаунт?</span>
                 <button className="button registration__btn" type="button">Войти</button>
             </div>
