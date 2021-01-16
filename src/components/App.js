@@ -4,15 +4,17 @@ import React from 'react';
 
 // Component
 import '../index.css';
-import './registration.css';
-import Group from "./form/ComponentForms/Group.js";
+import './global.css';
+import Registration from "./registration/Registration";
+import Form from "./form/Form";
 
 function App() {
   return (
       <React.Fragment>
-          <div className="registration">
+          <div className="global">
               <div className="wrapper">
-                  <Group />
+                  <Registration />
+                  <Form />
               </div>
           </div>
       </React.Fragment>
