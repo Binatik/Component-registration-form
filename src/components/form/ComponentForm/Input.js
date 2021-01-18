@@ -8,9 +8,9 @@ import './input.css';
 function Input({index, field}) {
     const [ isValidationName, setIsValidationName ] = useState(false)
     const [ isValidationEmail, setIsValidationEmail ] = useState(false)
-    const [ isWaiting, setIsWaiting ] = useState(false)
+    const [ isValidationTel, setIsValidationTel ] = useState(false)
 
-    const [ isValidationTel, setIsValidationTel ] = useState(true)
+    const [ isWaiting, setIsWaiting ] = useState(false)
 
     const { title, placeholder, warning } = field;
 
