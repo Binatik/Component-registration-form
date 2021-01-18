@@ -1,53 +1,58 @@
 // =================================================
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 // =================================================
 
 // Component
 import './input.css';
 
 function Input({index, field}) {
+    const [ isValidationName, setIsValidationName ] = useState(false)
+    const [ isValidationEmail, setIsValidationEmail ] = useState(false)
+    const [ isWaiting, setIsWaiting ] = useState(false)
+
+    const [ isValidationTel, setIsValidationTel ] = useState(true)
+
     const { title, placeholder, warning } = field;
 
-    function gt(node, index) {
-        for (let i = 0; i <= index; i++) {
-            node = node.parentNode;
-        }
-        return(node);
+    const reg = {
+        name: /^[a-zа-яё-]+$/i,
+        email: /^[A-Z0-9._%+-]+@[A-Z0-9-]+.+.[A-Z]{2,4}$/i,
+        tel: /^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$/
     }
 
-    function verifyValidity(event){
+    const formValidation = useRef(null);
+    //useEffect(() => {
+    //})
+
+    function verifyValidity(event) {
         const target = event.target;
-        const validation = gt(target, 1).children[2];
+        setIsWaiting(true);
 
-        const reg = {
-            name: /^[a-zа-яё-]+$/i,
-            email: /^[A-Z0-9._%+-]+@[A-Z0-9-]+.+.[A-Z]{2,4}$/i,
-            tel: /^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$/
+        if(reg.name.test(target.value) && index === 0){
+            setIsValidationName(true);
         }
-
-        function manageClass() {
-            validation.classList.remove('form__input_waiting');
-            validation.classList.add('form__input_ok');
-            validation.classList.remove('form__input_error');
+        else if(reg.email.test(target.value) && index === 1){
+            setIsValidationEmail(true);
         }
-
-
-        if (reg.name.test(target.value) && index === 0) {
-            manageClass()
-        }
-        else if (reg.email.test(target.value) && index === 1) {
-            manageClass()
-        }
-        else if (reg.tel.test(target.value) && index === 2) {
-            manageClass()
+        else if(reg.tel.test(target.value) && index === 2){
+            setIsValidationTel(true);
         }
         else {
-            validation.classList.remove('form__input_waiting');
-            validation.classList.add('form__input_error');
-            validation.classList.remove('form__input_ok');
+            setIsValidationName(false);
+            setIsValidationEmail(false);
+            setIsValidationTel(false);
         }
-
     }
+
+    function checkIsValidation() {
+        return isValidationName || isValidationEmail || isValidationTel ? "form__input_ok" : "form__input_error";
+    }
+
+    function waiting() {
+        return !isWaiting ? "form__input_waiting" : "";
+    }
+
+
     return (
         <React.Fragment>
             <div className="form__group">
@@ -60,7 +65,11 @@ function Input({index, field}) {
                         placeholder={placeholder}
                     />
                 </div>
-                <span className="form__input_validation"> {warning} </span>
+                <span
+                    ref={formValidation}
+                    className={`form__input_validation ${checkIsValidation() + ' ' + waiting()}`}
+                    >{warning}
+                </span>
             </div>
         </React.Fragment>
     );
