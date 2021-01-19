@@ -1,16 +1,15 @@
 // =================================================
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState } from 'react';
 // =================================================
 
 // Component
 import './input.css';
 
 function Input({index, field}) {
-    const [ isValidationName, setIsValidationName ] = useState(false)
-    const [ isValidationEmail, setIsValidationEmail ] = useState(false)
-    const [ isValidationTel, setIsValidationTel ] = useState(false)
-
-    const [ isWaiting, setIsWaiting ] = useState(false)
+    const [ isValidationName, setIsValidationName ] = useState(false);
+    const [ isValidationEmail, setIsValidationEmail ] = useState(false);
+    const [ isValidationTel, setIsValidationTel ] = useState(false);
+    const [ isWaiting, setIsWaiting ] = useState(false);
 
     const { title, placeholder, warning } = field;
 
@@ -19,10 +18,6 @@ function Input({index, field}) {
         email: /^[A-Z0-9._%+-]+@[A-Z0-9-]+.+.[A-Z]{2,4}$/i,
         tel: /^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$/
     }
-
-    const formValidation = useRef(null);
-    //useEffect(() => {
-    //})
 
     function verifyValidity(event) {
         const target = event.target;
@@ -66,7 +61,6 @@ function Input({index, field}) {
                     />
                 </div>
                 <span
-                    ref={formValidation}
                     className={`form__input_validation ${checkIsValidation() + ' ' + waiting()}`}
                     >{warning}
                 </span>
